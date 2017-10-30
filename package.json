@@ -1,0 +1,24 @@
+{
+  "name": "javascriptplayground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Maria Burlando",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-uglifycss": "^1.0.8",
+    "gulp-webserver": "^0.9.1"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "jquery-ui-dist": "^1.12.1"
+  }
+}
