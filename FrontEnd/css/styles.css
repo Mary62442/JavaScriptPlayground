@@ -1,0 +1,52 @@
+﻿body
+{
+
+	padding:0;
+	margin:0;	
+	font-family: 'Crimson Text', serif;
+	background-color:mintcream;
+	color:#2A2A2A;
+}
+
+#bt {
+	background-color:rosybrown;
+	border: none;
+	padding:1em;
+	font-family: 'Crimson Text', serif;
+	color:white;
+	outline:none;
+	font-size: 1.3em;
+	box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+	margin:1em 0 0 1em;
+}
+
+.heading {
+	
+	padding:1em 0;
+	background-color:mistyrose;
+	width:20%;
+	text-align:center;
+	box-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+
+}
+
+
+.flower {
+	display:flex;
+	align-items:center;
+	justify-content:space-evenly;
+}
+
+.description {
+	width:50%;
+	text-align:justify;
+	border: 1px solid rosybrown;
+	padding:1em;
+	background-color:white;
+}
+
+.image {
+	background-color:white;
+	padding:1em;
+	border: 1px solid rosybrown;
+}
