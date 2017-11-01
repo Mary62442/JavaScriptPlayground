@@ -10,15 +10,36 @@
 </head>
 <body>
 
+	<div id = "loader"></div>
 
-	<button id="bt"> Get flowers </button>
-	<section id="sec" ></section>
+	<div id="page">
+
+		<p id="friendly-err">The flower you searched for doesn't exist</p>
+
+		<section id="search-flower">
+		
+			<form id="search-form" action="#" method="get" > 
+				<div> 
+					<label for="flowerName">Search for a flower:</label> 
+					<input placeholder="Insert flower name" title="Insert flower name" name="flowerName" value=""> 
+				</div>			
+				<div> 
+					<input type="submit" value="Search flower">
+				</div> 
+			</form>
+
+		</section>
+
+		<section id="searched-flowers"></section>
 
 
+		
+		<h1 id ="all-title">Bach flowers</h1>
+	
+		<section id="all-flowers"></section>
 
 
-
-
+	</div>
 	<script src="/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="/node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
     <script src="/dist/index.js"></script>

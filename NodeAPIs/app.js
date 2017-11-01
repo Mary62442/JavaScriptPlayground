@@ -3,7 +3,8 @@ let http = require('http');
 let express = require('express');
 let app = express();
 let flowers = require('./data/flowers.json');
-
+let mongoClient =require('mongodb');
+let config = require('./mongoconfig');
 // the 5 http verbs
 // post, get, put, delete, options
 
@@ -23,7 +24,7 @@ let allowCrossDomain = function(req, res, next) {
 
 
 app.use(allowCrossDomain);
-app.get('/flower', (req, res,next)=> {
+app.get('/flowerstatic', (req, res,next)=> {
 
 	// example of url(uniform resource locator) query string
 	// http://localhost:3000/?name=diego&email=diego@dmm888.com&phone=0123
@@ -32,8 +33,6 @@ app.get('/flower', (req, res,next)=> {
 	// http:localhost:3000/flower/?flowerName=Rock%20Water
 	let qs = req.query;
 	let len = Object.keys(qs).length;
-
-
 	
 	if ( len != 1 ){
 		res.send('Incorrect number of parameters in query string e.g. /flowers/?flowerName=Rock%20Water');
@@ -48,15 +47,37 @@ app.get('/flower', (req, res,next)=> {
 	})
 	
 	res.send(result);
-
-
 });
 
+app.get('/flower', (req, res,next)=> {
 
-app.get('/flowers', (req, res, next)=> {
+	let qs = req.query;	
 
-	res.send(flowers);
+	mongoClient.connect(config.mongoConnectionString, (err, db) => {
 
+	db.collection('BachFlowers').findOne({Name:qs.flowerName}, function(err, flower){
+	db.close();
+	if (err !== null){
+		res.send('No flower has been found!');
+	}
+
+	res.send(flower);	
+	});
+	
+
+});
+}
+
+);
+
+
+app.get('/flowers', (req, res, next)=> {	
+	mongoClient.connect(config.mongoConnectionString, (err, db) => {
+	//assert.equal(null, err);
+	db.collection('BachFlowers').find({}).toArray( (err, flowers) => {
+		db.close();
+		res.send(flowers);});
+	});	
 });
 
 
