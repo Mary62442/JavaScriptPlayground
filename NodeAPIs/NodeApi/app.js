@@ -1,4 +1,7 @@
 ﻿'use strict';
+//https://nodeapi20171102091916.azurewebsites.net/
+//http://nodeapi20171102091916.azurewebsites.net/
+
 let http = require('http');
 let debug = require('debug');
 let express = require('express');
@@ -7,24 +10,26 @@ let flowers = require('./data/flowers.json');
 let config = require('./mongoconfig');
 let mongoClient = require('mongodb');
 let path = require('path');
+let fs = require('fs');
 
 let allowCrossDomain = function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
     // intercept OPTIONS method
-    if ('OPTIONS' === req.method) {
+    if ('OPTIONS' == req.method) {
         res.send(200);
     }
     else {
         next();
     }
-};
+}
 
 var app = express();
 app.use(allowCrossDomain);
-//http://nodeapi20171102091916.azurewebsites.net/
+
 app.get('/', (req, res, next) => {
+    let q = 5;
     res.sendFile(path.join(__dirname + '/api.html'));   
 });
 
@@ -32,7 +37,7 @@ app.get('/', (req, res, next) => {
 app.get('/flowerstatic', (req, res, next) => {   
     let qs = req.query;
     let len = Object.keys(qs).length;
-    if (len !== 1) {
+    if (len != 1) {
         res.send('Incorrect number of parameters in query string e.g. /flowers/?flowerName=Rock%20Water');
     }
     if (!qs.hasOwnProperty('flowerName')) {
@@ -73,8 +78,10 @@ app.get('/flower', (req, res, next) => {
 });
 
 
-let server = http.createServer(app).listen(process.env.PORT || 3000, function () {
-    console.log('Server express running at. ' + server.address().address + ':' + server.address().port + ' ');
+
+
+let serverUnsecure = http.createServer(app).listen(process.env.PORT || 3000, function () {
+    console.log('Server express running at. ' + serverUnsecure.address().address + ':' + serverUnsecure.address().port + ' ');
 });
 
 
