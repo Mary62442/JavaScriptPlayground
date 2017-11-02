@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="/dist/styles.css" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Rubik|Saira+Extra+Condensed" rel="stylesheet">
+</head>
+<body>
+
+	<div id = "loader"></div>
+
+	<div id="page">
+
+		
+
+		<section id="search-flower">
+			<div id="search-container">
+		
+				<form id="search-form" action="#" method="get" > 
+					<div> 
+						<label for="flowerName">Search for a flower:</label> 
+						<input placeholder="Insert flower name" title="Insert flower name" name="flowerName" value=""> 
+					
+						<input type="submit" value="Search flower">
+					</div> 
+				</form>
+			</div>
+
+			<p id="friendly-err">The flower you searched for doesn't exist</p>
+
+		</section>
+
+		
+		
+		<h1 id ="all-title">All Bach flowers</h1>
+	
+		<section id="all-flowers"></section>
+
+
+	</div>
+	<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/jquery-ui-dist/jquery-ui.min.js"></script>
+    <script src="/dist/index.js"></script>
+
+</body>
+</html>

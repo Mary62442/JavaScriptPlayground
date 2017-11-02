@@ -1,10 +1,7 @@
 $(document).ready(() => {
    $.ajax({
    		url: "http://localhost:3000/flowers",
-   	 	beforeSend: function (xhr) {
-
-
-   	 		$('#page').hide();
+   	 	beforeSend: function (xhr) {   	 		
    	 		$('#loader').show();
 
    	 	//alert('This is firing before sending the request')
@@ -13,23 +10,19 @@ $(document).ready(() => {
 
 	 		
 	 		$('#loader').fadeOut(200);	 	
-	 		$('#page').fadeIn(400).delay(200);
+	 		$('#page').fadeIn(200).delay(600);
 
 	 		for (let res of result) {
-
-	 			let initImg = res.ImagePath;	 		
-	 			let cutImg = initImg.substr(5);	 		
-	 			let webRoot = 'http://www.dmm888.com';
-	 			let newImg = webRoot.concat(cutImg);
-
+	 			
 	 			$('#all-flowers').append('<h1 class="heading" >' + res.Name + '</h1>');
-	 			$('#all-flowers').append('<div class ="flower" ><div class="description">' + 
-	 			res.Description + '</div><img class = "image" src = "'+ newImg + '"></div>');
+	 			$('#all-flowers').append('<div class ="flower" ><div class="description">' 
+	 			+ res.Description + '</div><img class = "image" style="background-color:'
+	 			+ res.FlowerColor.colorCode + '" src = "'+ res.ImagePath + '"></div>');
 
 	 		}
 
    	
-    	$("#sec").html(JSON.stringify(result));
+    	
    		},
 
    		error: function(error) {
@@ -46,16 +39,16 @@ $(document).ready(() => {
 	   		data : formData,   	 	
 		 	success: function(result){
 
+		 		$('#found-flower').remove();
 
 		 		if (result.hasOwnProperty('Name')) {				
-		 		let initImg = result.ImagePath;	 		
-	 			let cutImg = initImg.substr(5);	 		
-	 			let webRoot = 'http://www.dmm888.com';
-	 			let newImg = webRoot.concat(cutImg);
-
-	 			$('#searched-flowers').append('<h1 class="heading" >' + result.Name + '</h1>');
-	 			$('#searched-flowers').append('<div class ="flower" ><div class="description">' + 
-	 			result.Description + '</div><img class = "image" src = "'+ newImg + '"></div>');
+		 		
+	 			$('#search-container').append('<div id="found-flower"><h1 class="heading-found" >' 
+	 			+ result.Name + 
+	 			'</h1> <div class ="flower-found" > <div class="description-found">' + 
+	 			result.Description + 
+	 			'</div><img class = "image-found" src = "'+ 
+	 			result.ImagePath + '"></div></div>');
 
 		 		}
 
