@@ -41,6 +41,19 @@ body {
 }
 }
 
+
+.navbar {
+	position:fixed;
+	background-color:mistyrose;
+}
+
+.navbar a {
+
+	padding:1em;
+	background-color:rosybrown;
+}
+
+
 #flower-section {
 	display:flex;
 	flex-wrap:wrap;
@@ -70,6 +83,8 @@ body {
 	border:none;
 	box-shadow:inset 0 0 20px rgba(0,0,0,0.4);
 	outline:none;
+	height:20%;
+	color:#383838;
 }
 
 

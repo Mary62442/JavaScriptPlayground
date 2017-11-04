@@ -13,11 +13,13 @@ $(document).ready(() => {
 	 			//let appropriateTag = res.Name;
 	 			let appropriateTag = res.Name.replace(/ /g, "_");
 	 			
-	 			$('#flower-section').append(`<div style="background-color:${res.FlowerColor.colorCode}" class="flex-container"><h1>${res.Name}</h1><textarea data-flower = "${appropriateTag}" placeholder="Notes to update"></textarea><button id = "${appropriateTag}">Update</button>`);
+	 			$('#flower-section').append(`<div style="background-color:${res.FlowerColor.colorCode}" class="flex-container"><h1>${res.Name}</h1><textarea data-flower = "${appropriateTag}" placeholder="Notes to update">${res.Notes}</textarea><button id = "${appropriateTag}">Update</button>`);
 				$('#'+appropriateTag).click(function() {
   				let myTextarea = $(`textarea[data-flower ="${appropriateTag}"]`);
-  				alert(myTextarea.val());
-  				alert(res.Name);
+  				let flowerName = res.Name;
+  				
+
+
 				});
 	 		}    	
    		},
