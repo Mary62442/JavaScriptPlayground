@@ -22,7 +22,9 @@ $(document).ready(() => {
   						url: 'http://localhost:3000/updateflowernotes',
   						method: 'POST',
   						data: { Name:flowerName, Notes:notesTextarea.val() },
+              headers: { 'Authorization':'Basic ' + btoa('diego:secret')},
   						success: (response) =>{
+                
   							alert(response);
   						},
   						error: (error)=> {

@@ -2,14 +2,9 @@ body {
 	margin:0;
 	padding:0;
 	font-family: 'Crimson Text', serif;
-	background-color:black;
+	background-color:gainsboro;
 	color:#2A2A2A;
-	background-image:url('/images/leaves.jpg');
-	background-attachment:fixed;
-	background-size:cover;
-
 }
-
 
 #loader {
 	top:0;
@@ -29,7 +24,6 @@ body {
 	display:none;
 }
 
-
 @keyframes rotate {
 0%{
 	transform:rotate(0deg);
@@ -41,18 +35,29 @@ body {
 }
 }
 
+.container {
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+	width:80%;
+	margin:0 auto;
+	background-color:white;
+}
 
 .navbar {
-	position:fixed;
-	background-color:mistyrose;
+	height:3em;
+	background-color:rosybrown;
+	width:100%;
+	margin:0 auto;
+	border-bottom:0.5em solid rgba(0,0,0,0.1);
 }
 
 .navbar a {
-
-	padding:1em;
-	background-color:rosybrown;
+	text-decoration:none;
+	padding:0.5em 1em;
+	display: inline-block;
+	box-sizing:border-box;
+	color:white;
+	font-size:1.2em;
 }
-
 
 #flower-section {
 	display:flex;
@@ -62,19 +67,18 @@ body {
 }
 
 .flex-container {
-	width:40%;
+	width:45%;
 	text-align:center;
 	margin:2em 0;
-	box-sizing:border-box;
-	
+	box-sizing:border-box;	
 	border:0.7em solid rgba(0,0,0,0.4);
 }
-
 
 .flex-container h1 {
 	background-color:rgba(255,255,255,0.4);
 	padding:0.5em 0;
 }
+
 .flex-container textarea {
 	width:90%;
 	padding:0.5em;
@@ -87,7 +91,6 @@ body {
 	color:#383838;
 }
 
-
 .flex-container button {
 	font-family: 'Crimson Text', serif;
 	padding:1em;
@@ -95,9 +98,7 @@ body {
 	color:white;
 	border:none;
 	font-size:1.1em;
-	outline: none;
-	
-	
+	outline: none;	
 	transition:all 0.2s linear;
 	display:block;
 	margin:0 auto;
